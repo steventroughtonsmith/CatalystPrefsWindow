@@ -33,12 +33,16 @@ class PreferencesSceneDelegate: UIResponder, UIWindowSceneDelegate {
 			let fixedSize = CGSize(width: UIFloat(640), height: UIFloat(640))
 			window.windowScene?.sizeRestrictions?.minimumSize = fixedSize
 			window.windowScene?.sizeRestrictions?.maximumSize = fixedSize
-			
+						
 			self.window = window
 			
 			buildMacToolbar()
 			
 			doTab1(self)
+			
+			#if targetEnvironment(macCatalyst)
+			AppDelegate.appKitController?.perform(NSSelectorFromString("configurePreferencesWindowForSceneIdentifier:"), with: windowScene.session.persistentIdentifier)
+			#endif
 
 			window.makeKeyAndVisible()
 		}
@@ -61,7 +65,44 @@ class PreferencesSceneDelegate: UIResponder, UIWindowSceneDelegate {
 		}
 		#endif
 	}
+	
+	// MARK: - Tabs
+	
+	
+	@objc func doTab1(_ sender:Any) {
+		guard let scene = window?.windowScene else {
+			return
+		}
+		
+		scene.title = "Star"
+		
+		let contentView = PreferencesContentView()
+
+		let hostingController = UIHostingController(rootView: contentView)
+		hostingController.view.backgroundColor = .clear
+		hostingController.view.isOpaque = false
+		
+		window?.rootViewController = hostingController
+	}
+	
+	@objc func doTab2(_ sender:Any) {
+		guard let scene = window?.windowScene else {
+			return
+		}
+		
+		scene.title = "Circle"
+		
+		let contentView = PreferencesContentView2()
+
+		let hostingController = UIHostingController(rootView: contentView)
+		hostingController.view.backgroundColor = .clear
+		hostingController.view.isOpaque = false
+		
+		window?.rootViewController = hostingController
+	}
 }
+
+// MARK: - NSToolbar
 
 #if targetEnvironment(macCatalyst)
 extension PreferencesSceneDelegate: NSToolbarDelegate {
@@ -109,37 +150,6 @@ extension PreferencesSceneDelegate: NSToolbarDelegate {
 			return NSToolbarItem(itemIdentifier: itemIdentifier)
 		}
 	}
-	
-	@objc func doTab1(_ sender:Any) {
-		guard let scene = window?.windowScene else {
-			return
-		}
-		
-		scene.title = "Star"
-		
-		let contentView = PreferencesContentView()
 
-		let hostingController = UIHostingController(rootView: contentView)
-		hostingController.view.backgroundColor = .clear
-		hostingController.view.isOpaque = false
-		
-		window?.rootViewController = hostingController
-	}
-	
-	@objc func doTab2(_ sender:Any) {
-		guard let scene = window?.windowScene else {
-			return
-		}
-		
-		scene.title = "Circle"
-		
-		let contentView = PreferencesContentView2()
-
-		let hostingController = UIHostingController(rootView: contentView)
-		hostingController.view.backgroundColor = .clear
-		hostingController.view.isOpaque = false
-		
-		window?.rootViewController = hostingController
-	}
 }
 #endif
