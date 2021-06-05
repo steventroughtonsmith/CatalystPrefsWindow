@@ -59,7 +59,7 @@ struct PreferencesContentView2: View {
 					.frame(maxWidth:UIFloat(500))
 					
 					Spacer(minLength: 0)
-
+					
 					Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 						.font(.caption)
 					
@@ -130,19 +130,23 @@ struct PreferencesContentView: View {
 					
 					spacer
 					
-					Text("Please choose a color")
-					Picker(selection: $selectedColor, label:Group{}) {
-						ForEach(colors, id: \.self) {
-							Text($0)
+					Group {
+						Text("Please choose a color")
+						Picker(selection: $selectedColor, label:Group{}) {
+							ForEach(colors, id: \.self) {
+								Text($0)
+							}
 						}
+						.pickerStyle(InlinePickerStyle())
 					}
-					.pickerStyle(InlinePickerStyle())
 					
 					spacer
 					
 					Button("Advanced") {
 						
 					}
+					
+					Spacer(minLength: 0)
 				}
 				.padding()
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
