@@ -14,7 +14,7 @@ extension NSObject {
 
 class AppKitController : NSObject {
 	
-	var preferencesSceneIdentifier:String?
+	private var preferencesSceneIdentifier: UIKitSceneIdentifier?
 	
 	// MARK: -
 	
@@ -28,7 +28,9 @@ class AppKitController : NSObject {
 		*/
 		
 		if let userInfo = note.userInfo, let sceneIdentifier = userInfo["SceneIdentifier"] as? String {
-			if sceneIdentifier == preferencesSceneIdentifier {
+            let appKitSceneIdentifier = AppKitSceneIdentifier(sceneIdentifier)
+            let uiKitSceneIdentifier = UIKitSceneIdentifier(appKitSceneIdentifier)
+			if  uiKitSceneIdentifier == preferencesSceneIdentifier {
 				guard let appDelegate = NSApp.delegate as? NSObject else { return }
 				
 				if appDelegate.responds(to: #selector(hostWindowForSceneIdentifier(_:))) {
@@ -42,6 +44,6 @@ class AppKitController : NSObject {
 	}
 	
 	@objc public func configurePreferencesWindowForSceneIdentifier(_ sceneIdentifier:String) {
-		preferencesSceneIdentifier = sceneIdentifier
+		preferencesSceneIdentifier = UIKitSceneIdentifier(sceneIdentifier)
 	}
 }

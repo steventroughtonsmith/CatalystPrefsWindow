@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7219C52626AA119B00CEC73D /* UIKitSceneIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7219C52526AA119B00CEC73D /* UIKitSceneIdentifier.swift */; };
+		7219C52826AA11A800CEC73D /* AppKitSceneIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7219C52726AA11A800CEC73D /* AppKitSceneIdentifier.swift */; };
 		B0885EA6266BB4B400E8312E /* AppKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885EA5266BB4B400E8312E /* AppKitController.swift */; };
 		B0885EAA266BB50E00E8312E /* AppKitIntegration.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0885E9D266BB4A800E8312E /* AppKitIntegration.framework */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0A17034266B112400FD93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A17033266B112400FD93F1 /* AppDelegate.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7219C52526AA119B00CEC73D /* UIKitSceneIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSceneIdentifier.swift; sourceTree = "<group>"; };
+		7219C52726AA11A800CEC73D /* AppKitSceneIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitSceneIdentifier.swift; sourceTree = "<group>"; };
 		B0885E9D266BB4A800E8312E /* AppKitIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppKitIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0885EA0266BB4A800E8312E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0885EA5266BB4B400E8312E /* AppKitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitController.swift; sourceTree = "<group>"; };
@@ -83,8 +87,10 @@
 		B0885E9E266BB4A800E8312E /* AppKitIntegration */ = {
 			isa = PBXGroup;
 			children = (
-				B0885EA5266BB4B400E8312E /* AppKitController.swift */,
 				B0885EA0266BB4A800E8312E /* Info.plist */,
+				B0885EA5266BB4B400E8312E /* AppKitController.swift */,
+				7219C52726AA11A800CEC73D /* AppKitSceneIdentifier.swift */,
+				7219C52526AA119B00CEC73D /* UIKitSceneIdentifier.swift */,
 			);
 			path = AppKitIntegration;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0885EA6266BB4B400E8312E /* AppKitController.swift in Sources */,
+				7219C52826AA11A800CEC73D /* AppKitSceneIdentifier.swift in Sources */,
+				7219C52626AA119B00CEC73D /* UIKitSceneIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +318,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2ZDN69KUUV;
+				DEVELOPMENT_TEAM = 8NQFWJHC63;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -341,7 +349,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2ZDN69KUUV;
+				DEVELOPMENT_TEAM = 8NQFWJHC63;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -487,7 +495,7 @@
 				CODE_SIGN_ENTITLEMENTS = CatalystPrefsWindow/CatalystPrefsWindow.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CatalystPrefsWindow/Preview Content\"";
-				DEVELOPMENT_TEAM = 2ZDN69KUUV;
+				DEVELOPMENT_TEAM = 8NQFWJHC63;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CatalystPrefsWindow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
