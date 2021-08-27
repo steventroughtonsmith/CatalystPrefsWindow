@@ -20,6 +20,8 @@ class AppKitController : NSObject {
 	
 	@objc public func _marzipan_setupWindow(_ note:Notification) {
 		
+		guard let preferencesSceneIdentifier = preferencesSceneIdentifier else { return }
+		
 		NSLog("_marzipan_setupWindow: \(String(describing: note.userInfo))")
 		
 		/*
@@ -28,7 +30,7 @@ class AppKitController : NSObject {
 		*/
 		
 		if let userInfo = note.userInfo, let sceneIdentifier = userInfo["SceneIdentifier"] as? String {
-			if sceneIdentifier == preferencesSceneIdentifier {
+			if sceneIdentifier.hasSuffix(preferencesSceneIdentifier) {
 				guard let appDelegate = NSApp.delegate as? NSObject else { return }
 				
 				if appDelegate.responds(to: #selector(hostWindowForSceneIdentifier(_:))) {
