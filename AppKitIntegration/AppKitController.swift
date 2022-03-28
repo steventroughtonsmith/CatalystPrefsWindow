@@ -38,6 +38,7 @@ class AppKitController : NSObject {
 					
 					hostWindow.collectionBehavior = [.fullScreenAuxiliary]
 					hostWindow.styleMask = [.closable, .titled]
+					hostWindow.isRestorable = false
 				}
 			}
 		}
